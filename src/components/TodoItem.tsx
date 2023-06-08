@@ -53,22 +53,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
           <input
             value={editTitle}
             onChange={(e) => setEditTitle(e.currentTarget.value)}
-            onKeyPress={(e) =>
-              handleEditKeyPress(e, todo.id, editTitle)
-            }
+            onKeyPress={(e) => handleEditKeyPress(e, todo.id, editTitle)}
             type="text"
             className="form-control me-2"
           />
-          <button
-            type="submit"
-            className="btn btn-primary me-2"
-          >
+          <button type="submit" className="btn btn-primary me-2">
             <CheckIcon />
           </button>
-          <button
-            onClick={cancelEditing}
-            className="btn btn-secondary"
-          >
+          <button onClick={cancelEditing} className="btn btn-secondary">
             <HourglassEmptyIcon />
           </button>
         </form>
@@ -78,14 +70,16 @@ const TodoItem: React.FC<TodoItemProps> = ({
             onClick={() => removeIt(todo.id)}
             className="btn btn-danger me-2"
           >
-            <DeleteIcon />
+            <Tooltip title="Delete">
+              <DeleteIcon />
+            </Tooltip>
           </button>
-          <div style={{overflow:'scroll'}}>{todo.title}</div>
+          <div style={{ overflow: "scroll" }}>{todo.title}</div>
           <button
             onClick={() => toggle(todo.id)}
             className="btn btn-primary ms-auto"
           >
-            {todo.completed ? (
+            {todo.completed == false ? (
               <Tooltip title="On Progress">
                 <HourglassEmptyIcon />
               </Tooltip>
@@ -99,7 +93,9 @@ const TodoItem: React.FC<TodoItemProps> = ({
             onClick={() => startEditing(todo.id, todo.title)}
             className="btn btn-secondary ms-2"
           >
-            <EditIcon />
+            <Tooltip title="Edit">
+              <EditIcon />
+            </Tooltip>
           </button>
         </>
       )}

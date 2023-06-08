@@ -8,9 +8,9 @@ import {
 } from "./redux/features/todoSlice";
 import "./app.css";
 import CircularProgress from "@mui/material/CircularProgress";
-import ProfileImage from "./ProfileImage";
-import TodoInput from "./TodoInput";
-import TodoItem from "./TodoItem";
+import ProfileImage from "./components/ProfileImage";
+import TodoInput from "./components/TodoInput";
+import TodoItem from "./components//TodoItem";
 
 function App() {
   const todos = useAppSelector((state) => state.todos);
